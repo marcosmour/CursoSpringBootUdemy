@@ -23,13 +23,18 @@ public class MathController {
 	}
 	
 	private Double convertToDouble(String strNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(strNumber == null) return 0D;
+		String number = strNumber.replaceAll(",", "."); // PARA COLOCAR O . NO LUGAR DA VIRGULA
+		if(isNumeric(number)) return Double.parseDouble(number); // PARA CONVERTER A STRING EM DOUBLE
+		return 0D;
 	}
 
 	private boolean isNumeric(String strNumber) {
-		return false;
-	}
+		
+		if(strNumber == null) return false;
+		String number = strNumber.replaceAll(",", ".");
+		return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 	
-
+	}
 }
